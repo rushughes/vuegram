@@ -122,7 +122,8 @@ export default {
     login () {
       this.performingRequest = true
       fb.auth.signInWithEmailAndPassword(this.loginForm.email, this.loginForm.password).then(user => {
-        this.$store.commit('setCurrentUser', user)
+        console.log(user)
+        this.$store.commit('setCurrentUser', user.user)
         this.$store.dispatch('fetchUserProfile')
         this.performingRequest = false
         this.$router.push('/dashboard')
