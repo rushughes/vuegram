@@ -75,6 +75,11 @@ export default {
       }).catch(err => {
         console.log(err)
       })
+    },
+    showNewPosts () {
+      let updatedPostsArray = this.hiddenPosts.concat(this.posts)
+      this.$store.commit('setHiddenPosts', null)
+      this.$store.commit('setPosts', updatedPostsArray)
     }
   },
   filters: {
